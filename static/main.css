@@ -1,0 +1,103 @@
+html, body {
+  display: flex;
+  justify-content: center;
+  font-family: Roboto, Arial, sans-serif;
+  font-size: 15px;
+}
+
+input{
+  width: 100%;
+  padding: 16px 8px;
+  margin: 8px 0;
+  display: inline-block;
+  border: 1px solid #ccc;
+  box-sizing: border-box;
+}
+
+button {
+  background-color: #8ebf42;
+  color: white;
+  padding: 14px 0;
+  margin: 10px 0;
+  border: none;
+  width: 100%;
+}
+
+button:hover {
+  opacity: 0.8;
+}
+
+h1 {
+  text-align:center;
+  fone-size:18;
+}
+
+.error_msg {
+  color: #ff0000;
+  border-color: #ff0000;
+}
+
+.container_outer {
+  text-align: left;
+  margin: 24px 50px 12px;
+  width: 300px;
+}
+.container_inner {
+  padding: 16px 0;
+  text-align:left;
+}
+
+.form-block{
+  display: block;
+  justify-content: center;
+}
+
+.bordered {
+  border: 5px solid #f1f1f1;
+}
+
+.lds-dual-ring.hidden {
+  display: none;
+}
+
+.overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100vh;
+  background: rgba(0,0,0,.8);
+  z-index: 999;
+  opacity: 1;
+  transition: all 0.5s;
+}
+
+.lds-dual-ring {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  display: inline-block;
+}
+
+.lds-dual-ring:after {
+  content: " ";
+  display: block;
+  width: 64px;
+  height: 64px;
+  margin: 5% auto;
+  border-radius: 50%;
+  border: 6px solid #fff;
+  border-color: #fff transparent #fff transparent;
+  animation: lds-dual-ring 1.2s linear infinite;
+}
+
+@keyframes lds-dual-ring {
+  0% {
+      transform: rotate(0deg);
+  }
+  100% {
+      transform: rotate(360deg);
+  }
+}

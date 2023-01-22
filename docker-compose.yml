@@ -1,0 +1,39 @@
+version: '3.8'
+
+services:
+
+  redis:
+    image: redis:7-alpine
+
+  web:
+    build: .
+    command: python manage.py runserver 0.0.0.0:8000
+    volumes:
+      - .:/usr/src/app/
+    ports:
+      - 1337:8000
+    environment:
+      - DEBUG=1
+      - SECRET_KEY=django-insecure-98ay6&^8i%#2ddxco9uv@!2(@enql(9-tn)+2(l6r-sq%gbo!t
+      - DJANGO_ALLOWED_HOSTS=localhost 127.0.0.1 [::1]
+      - CELERY_BROKER=redis://redis:6379/0
+      - CELERY_BACKEND=redis://redis:6379/0
+    depends_on:
+      - redis
+
+  celery:
+    build: .
+    command: celery --app=crawler worker --loglevel=info --logfile=logs/celery.log
+    volumes:
+      - .:/usr/src/app
+    environment:
+      - DEBUG=1
+      - SECRET_KEY=django-insecure-98ay6&^8i%#2ddxco9uv@!2(@enql(9-tn)+2(l6r-sq%gbo!t
+      - DJANGO_ALLOWED_HOSTS=localhost 127.0.0.1 [::1]
+      - CELERY_BROKER=redis://redis:6379/0
+      - CELERY_BACKEND=redis://redis:6379/0
+    depends_on:
+      - web
+      - redis
+
+

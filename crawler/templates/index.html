@@ -1,0 +1,30 @@
+{%  load static %}
+
+
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Simple login form</title>
+        <link rel="stylesheet" type="text/css" href="{% static 'main.css' %}">
+    </head>
+    <body>
+        <div class="form-block">
+            <div id="loader" class="lds-dual-ring hidden overlay"></div>
+            <div class="bordered">
+                <div class="container_outer">
+                    <h1>Simple Web Crawler</h1>
+                    <hr/>
+                    <div class="container_inner">
+                        <input type="text" id="url_value" placeholder="Url">
+                    </div>
+                    <button id="send">Старт</button>
+                </div>
+            </div>
+            <div class="container_outer">
+                <ul id="links"></ul>
+            </div>
+        </div>
+        <script type="text/javascript" src="{% static 'jquery-3.4.1.min.js' %}"></script>
+        <script type="text/javascript" src="{% static 'main.js' %}"></script>
+    </body>
+</html>
